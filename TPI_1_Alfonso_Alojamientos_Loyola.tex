@@ -1,0 +1,599 @@
+% ============================================================================
+% TRABAJO PRÁCTICO INDIVIDUAL 1 (TPI 1)
+% Asignatura: Ampliación de Bases de Datos
+% Curso 2026/2027 - Universidad Loyola Andalucía
+% Profesor: Dr. Anier Soria Lorente
+% Estudiante: Alfonso
+% ============================================================================
+
+\documentclass[a4paper,12pt]{article}
+
+% ---------------------------------------------------------------------------
+% Codificación, idioma y tipografía
+% ---------------------------------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+
+% ---------------------------------------------------------------------------
+% Página y espaciado
+% ---------------------------------------------------------------------------
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=2.7cm,right=2.7cm,headheight=26pt]{geometry}
+\usepackage{setspace}
+\setstretch{1.15}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.7em}
+\usepackage{eurosym}
+
+% ---------------------------------------------------------------------------
+% Colores e identidad visual
+% ---------------------------------------------------------------------------
+\usepackage{xcolor}
+\definecolor{LoyolaBlue}{HTML}{082B66}
+\definecolor{LoyolaCyan}{HTML}{5CC8DF}
+\definecolor{SoftBlue}{HTML}{EEF5FA}
+\definecolor{SoftGray}{HTML}{F5F6F7}
+\definecolor{TextGray}{HTML}{374151}
+
+% ---------------------------------------------------------------------------
+% Imágenes, tablas y listas
+% ---------------------------------------------------------------------------
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% ---------------------------------------------------------------------------
+% Código fuente
+% ---------------------------------------------------------------------------
+\usepackage{listings}
+\lstdefinestyle{codigo}{
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{SoftGray},
+  frame=single,
+  rulecolor=\color{LoyolaBlue!35},
+  numbers=left,
+  numberstyle=\tiny\color{TextGray},
+  numbersep=8pt,
+  breaklines=true,
+  showstringspaces=false,
+  tabsize=2,
+  captionpos=b,
+  keywordstyle=\color{LoyolaBlue}\bfseries,
+  commentstyle=\color{green!45!black},
+  stringstyle=\color{orange!60!black}
+}
+\lstset{style=codigo}
+
+% ---------------------------------------------------------------------------
+% Matemáticas y enlaces
+% ---------------------------------------------------------------------------
+\usepackage{amsmath,amssymb}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=LoyolaBlue,
+  urlcolor=LoyolaBlue,
+  citecolor=LoyolaBlue,
+  pdftitle={TPI 1: Bases de Datos Especializadas - PostGIS},
+  pdfauthor={Alfonso}
+}
+
+% ---------------------------------------------------------------------------
+% Cabecera y pie de página
+% ---------------------------------------------------------------------------
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textcolor{LoyolaBlue}{Ampliación de Bases de Datos -- TPI 1}}
+\fancyhead[R]{\small\textcolor{TextGray}{Curso 2026/2027}}
+\fancyfoot[L]{\small Universidad Loyola Andalucía}
+\fancyfoot[R]{\small Página \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.6pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{LoyolaCyan}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\footrulewidth}{0pt}
+
+% ---------------------------------------------------------------------------
+% Estilo de secciones
+% ---------------------------------------------------------------------------
+\usepackage{titlesec}
+\titleformat{\section}
+  {\Large\bfseries\color{LoyolaBlue}}
+  {\thesection.}{0.6em}{}
+\titleformat{\subsection}
+  {\large\bfseries\color{LoyolaBlue}}
+  {\thesubsection.}{0.6em}{}
+\titleformat{\subsubsection}
+  {\normalsize\bfseries\color{LoyolaBlue}}
+  {\thesubsubsection.}{0.6em}{}
+
+% ---------------------------------------------------------------------------
+% Caja de indicaciones
+% ---------------------------------------------------------------------------
+\usepackage[most]{tcolorbox}
+\newtcolorbox{indicacion}{
+  colback=SoftBlue,
+  colframe=LoyolaCyan,
+  boxrule=0.8pt,
+  arc=2mm,
+  left=3mm,right=3mm,top=2mm,bottom=2mm
+}
+
+% ============================================================================
+% DATOS DEL TRABAJO
+% ============================================================================
+\newcommand{\TPINumero}{TPI 1}
+\newcommand{\TPITitulo}{Bases de Datos Especializadas: Sistema Geoespacial de Búsqueda y Convivencia para Alojamientos Universitarios (PostgreSQL + PostGIS)}
+\newcommand{\Estudiante}{Alfonso}
+\newcommand{\FechaEntrega}{Octubre 2026}
+\newcommand{\Profesor}{Dr. Anier Soria Lorente}
+
+\begin{document}
+
+% ============================================================================
+% PORTADA
+% ============================================================================
+\begin{titlepage}
+  \thispagestyle{empty}
+
+  \begin{center}
+    \includegraphics[width=0.68\textwidth]{logo_uloyola.png}
+
+    \vspace{1.0cm}
+
+    {\Large\bfseries\color{LoyolaBlue} Ampliación de Bases de Datos\par}
+    \vspace{0.3cm}
+    {\large Grado en Ingeniería del Software\par}
+    {\large 3.º Curso -- 5.º Semestre -- 6 ECTS\par}
+    {\large Curso académico 2026/2027\par}
+
+    \vspace{1.2cm}
+
+    \colorbox{SoftBlue}{%
+      \parbox{0.92\textwidth}{%
+        \centering
+        \vspace{0.5cm}
+        {\LARGE\bfseries\color{LoyolaBlue}\TPINumero: Tema 3\par}
+        \vspace{0.3cm}
+        {\Large\bfseries\TPITitulo\par}
+        \vspace{0.5cm}
+      }%
+    }
+
+    \vfill
+
+    \begin{tabular}{>{\bfseries}p{4.2cm} p{9.0cm}}
+      Estudiante: & \Estudiante \\
+      Profesor: & \Profesor \\
+      Tecnología: & PostgreSQL 16 + Extensión PostGIS 3.4 \\
+      Fecha de entrega: & \FechaEntrega \\
+    \end{tabular}
+
+    \vfill
+
+    {\small\color{TextGray} Departamento de Métodos Cuantitativos -- Universidad Loyola Andalucía}
+  \end{center}
+\end{titlepage}
+
+% ============================================================================
+% ÍNDICE
+% ============================================================================
+\tableofcontents
+\newpage
+
+% ============================================================================
+% 1. PROBLEMA REAL Y CONTEXTO
+% ============================================================================
+\section{Problema real y contexto}
+
+El inicio de cada curso académico en la Universidad Loyola Andalucía plantea un reto logístico significativo para cientos de estudiantes nacionales e internacionales que se incorporan al \textbf{Campus de Sevilla (Dos Hermanas)}, ubicado en la Avenida de las Universidades, 2. Dado que el campus se sitúa en una zona de expansión metropolitana (\textit{Entrenúcleos}), la oferta residencial se distribuye de manera heterogénea a lo largo de un radio de hasta 5 kilómetros, abarcando diferentes núcleos urbanos con perfiles diferenciados:
+
+\begin{itemize}[leftmargin=1.0cm]
+  \item \textbf{Entrenúcleos:} Área residencial colindante al campus (0.5 a 1.8 km), transitable a pie o en carril bici, con residencias universitarias modernas y promociones residenciales recientes.
+  \item \textbf{Montequinto y Olivar de Quintos:} Barrio residencial consolidado (2.5 a 4.5 km) con gran vida estudiantil, comercio de proximidad y conexión directa con el campus mediante la Línea 1 de Metro y autobuses lanzadera.
+  \item \textbf{Bellavista y Los Bermejales:} Distrito del sur de Sevilla (3.5 a 5.0 km), conectado con el campus mediante autobús interurbano y la línea C-1 de Cercanías Renfe.
+  \item \textbf{Centro de Dos Hermanas:} Casco urbano tradicional (2.0 a 3.5 km), con precios de alquiler más contenidos y conexión ferroviaria.
+\end{itemize}
+
+Los buscadores inmobiliarios genéricos del mercado (Idealista, Fotocasa) presentan dos carencias estructurales que motivan este trabajo:
+\begin{enumerate}[leftmargin=1.0cm]
+  \item \textbf{Carencia de inteligencia espacial estricta:} Dichas plataformas organizan la búsqueda mediante cadenas de texto (nombre de municipio o código postal), lo que resulta inadecuado cuando las divisiones administrativas no se corresponden con la proximidad física al campus ni con las rutas reales de transporte universitario.
+  \item \textbf{Inexistencia de un módulo de compatibilidad de convivencia:} En pisos compartidos de 3 o 4 habitaciones donde ya residen alumnos, la variable decisiva para el éxito académico y personal no es únicamente el precio o la ubicación, sino el perfil humano de los compañeros (grado universitario, curso académico, hábitos de orden, rutinas de silencio y respeto en periodos de exámenes).
+\end{enumerate}
+
+El presente trabajo aborda esta problemática mediante una base de datos geoespacial especializada construida sobre \textbf{PostgreSQL} con la extensión \textbf{PostGIS}, complementada con un visualizador cartográfico interactivo (\textit{Loyola Living}).
+
+% ============================================================================
+% 2. NECESIDAD RELACIONADA CON LOS DATOS Y OBJETIVOS
+% ============================================================================
+\section{Necesidad relacionada con los datos y objetivos}
+
+\subsection{Necesidad identificada}
+El problema analizado demanda un tratamiento de datos que trasciende las capacidades del modelo relacional estándar:
+\begin{itemize}[leftmargin=1.0cm]
+  \item Necesidad de representar entidades geográficas primarias: chinchetas GPS para la universidad y los alojamientos, y geometrías poligonales cerradas para delimitar las áreas de cobertura de las líneas de transporte y barrios.
+  \item Necesidad de calcular distancias esferoidales exactas en metros sobre el elipsoide terrestre (WGS 84), descartando la distorsión que generaría calcular distancias euclidianas planas sobre grados decimales de latitud y longitud.
+  \item Necesidad de evaluar relaciones topológicas de contención espacial (\textit{Point-in-Polygon}) para determinar si un piso pertenece a un área con autobús lanzadera.
+  \item Necesidad de persistencia relacional híbrida: modelar la jerarquía de viviendas, caseros, habitaciones e inquilinos actuales garantizando integridad referencial.
+\end{itemize}
+
+\subsection{Objetivo general}
+Diseñar, implementar y evaluar un sistema gestor de base de datos geoespacial basado en \textbf{PostgreSQL 16} y \textbf{PostGIS 3.4}, orquestado en contenedores Docker, capaz de resolver consultas analíticas de proximidad, contención territorial y compatibilidad de convivencia estudiantil en el entorno del Campus de Sevilla de la Universidad Loyola.
+
+\subsection{Objetivos específicos}
+\begin{enumerate}[leftmargin=1.0cm]
+  \item Diseñar el esquema de base de datos relacional-geoespacial utilizando tipos nativos \texttt{GEOMETRY(Point, 4326)} y \texttt{GEOMETRY(Polygon, 4326)} bajo el sistema de referencia espacial WGS 84.
+  \item Desplegar el entorno de forma automatizada y reproducible mediante \texttt{docker-compose.yml} con persistencia desacoplada.
+  \item Optimizar el acceso físico mediante \textbf{índices espaciales GiST} funcionales (\texttt{geom::geography}) para evitar el escaneo secuencial (\textit{Full Table Scan}) y garantizar latencias inferiores a un milisegundo.
+  \item Formular y validar una batería de consultas espaciales (\texttt{ST\_DWithin}, \texttt{ST\_Distance}, \texttt{ST\_Contains}) que respondan a los casos de uso reales de un estudiante universitario.
+  \item Demostrar técnicamente la eficiencia del índice espacial mediante el análisis del plan de ejecución con \texttt{EXPLAIN ANALYZE}.
+  \item Desarrollar una aplicación web cartográfica interactiva en \textbf{Leaflet} con cartografía base de Esri y filtros dinámicos de radio, ordenación (\texttt{ORDER BY}) y perfiles de inquilinos.
+\end{enumerate}
+
+% ============================================================================
+% 3. CONCEPTOS Y TECNOLOGÍAS APLICADAS
+% ============================================================================
+\section{Conceptos y tecnologías aplicadas}
+
+Esta sección analiza los fundamentos técnicos que justifican la elección de una base de datos especializada frente al paradigma relacional clásico.
+
+\subsection{El límite del modelo relacional clásico frente al dato espacial}
+En un SGBD relacional estándar (como MySQL o PostgreSQL sin extensiones), las coordenadas GPS solo pueden almacenarse como atributos numéricos separados:
+\begin{equation}
+  \text{Alojamiento}(\text{id}, \text{titulo}, \text{latitud: FLOAT}, \text{longitud: FLOAT}, \text{precio})
+\end{equation}
+Este enfoque presenta tres problemas insolubles:
+\begin{enumerate}[leftmargin=1.0cm]
+  \item \textbf{Distorsión geométrica euclidiana:} Si se calcula la distancia euclidiana pitagórica $d = \sqrt{(\Delta \text{lat})^2 + (\Delta \text{lon})^2}$, el resultado se expresa en grados, no en metros. Debido a la convergencia de meridianos hacia los polos, en la latitud de Sevilla ($37.3^\circ$ N), un grado de longitud equivale a aproximadamente $88.5\text{ km}$, mientras que un grado de latitud equivale a $111\text{ km}$. La distancia plana euclidiana comete errores de decenas de metros por kilómetro.
+  \item \textbf{Degradación computacional ($O(N)$):} Para calcular la distancia real esferoidal en SQL estándar es necesario evaluar la \textit{fórmula del semiverseno} (Haversine) mediante funciones trigonométricas intensivas ($\sin$, $\cos$, $\arctan$):
+  \begin{equation}
+    d = 2R \arcsin \left( \sqrt{\sin^2\left(\frac{\Delta \phi}{2}\right) + \cos(\phi_1)\cos(\phi_2)\sin^2\left(\frac{\Delta \lambda}{2}\right)} \right)
+  \end{equation}
+  Un SGBD relacional debe calcular esta fórmula en cada fila de la tabla (\textit{Seq Scan}), impidiendo la indexación directa en 2D.
+  \item \textbf{Incapacidad de contención poligonal:} Evaluar si un punto cae dentro de un barrio irregular requiere algoritmos de lanzamiento de rayos (\textit{Ray Casting}), imposibles de formular limpiamente en SQL estándar sin extensiones.
+\end{enumerate}
+
+\subsection{PostGIS y el estándar espacial WGS 84 (SRID 4326)}
+\textbf{PostGIS} es la extensión espacial oficial del consorcio OGC (\textit{Open Geospatial Consortium}) para PostgreSQL. Añade soporte para geometrías vectoriales conformes al estándar \textit{Simple Features for SQL}.
+
+En este proyecto se utiliza el identificador de referencia espacial \textbf{SRID 4326}, que representa el sistema geodésico mundial \textbf{WGS 84} (el estándar utilizado por los satélites GPS y cartografía global). Las coordenadas se expresan en el orden canónico $(\text{longitud}, \text{latitud})$, donde la longitud en Sevilla es negativa ($\approx -5.94^\circ$) y la latitud es positiva ($\approx 37.31^\circ$).
+
+\subsection{Índices espaciales GiST (Generalized Search Tree)}
+Los índices tradicionales \textbf{B-Tree} están diseñados para datos con orden total unidimensional ($a < b < c$), resultando inútiles para clasificar entidades bidimensionales en el espacio. 
+
+PostGIS implementa índices \textbf{GiST} basados en \textbf{Árboles R} (\textit{R-Trees}). El índice descompone el mapa jerárquicamente agrupando los puntos y polígonos en rectángulos mínimos envolventes (\textit{Bounding Boxes} o MBR). Cuando se ejecuta una búsqueda por cercanía, el planificador evalúa primero el operador de solapamiento de cajas (\texttt{\&\&}), descartando de inmediato el 99 \% del territorio sin abrir las tuplas en disco, y aplicando el cálculo esferoidal exacto únicamente sobre las tuplas candidatas supervivientes.
+
+\subsection{Operaciones geodésicas en metros: el tipo GEOGRAPHY}
+Mientras que el tipo \texttt{GEOMETRY} asume un plano cartesiano, el tipo \texttt{GEOGRAPHY} calcula distancias geodésicas sobre el elipsoide terrestre. PostGIS permite convertir al vuelo mediante el operador de conversión rápida:
+\begin{lstlisting}[language=SQL]
+a.geom::geography
+\end{lstlisting}
+Esto habilita tres funciones nucleares:
+\begin{itemize}[leftmargin=1.0cm]
+  \item \texttt{ST\_DWithin(geom1::geography, geom2::geography, radio\_metros)}: predicado booleano que determina si dos entidades se hallan a menos de $X$ metros, aprovechando el índice GiST.
+  \item \texttt{ST\_Distance(geom1::geography, geom2::geography)}: devuelve la distancia exacta en metros a lo largo de la superficie del esferoide.
+  \item \texttt{ST\_Contains(poligono, punto)}: valida topológicamente la contención espacial de un portal dentro del perímetro de un barrio o corredor de transporte.
+\end{itemize}
+
+% ============================================================================
+% 4. DESARROLLO DEL TRABAJO
+% ============================================================================
+\section{Desarrollo del trabajo}
+
+\subsection{Diseño del modelo de datos relacional-espacial}
+El esquema consta de cuatro tablas relacionales normalizadas que integran dimensiones espaciales y descriptivas:
+
+\begin{figure}[H]
+  \centering
+  \fbox{%
+    \parbox{0.92\textwidth}{%
+      \small
+      \textbf{campus\_universitario:} (id, nombre, ciudad, direccion, lat, lon, \textcolor{LoyolaBlue}{\textbf{geom: Point 4326}}) \\
+      \textbf{zonas\_cobertura:} (id, nombre\_barrio, transporte\_directo, tiempo\_estimado\_min, \textcolor{LoyolaBlue}{\textbf{geom: Polygon 4326}}) \\
+      \textbf{alojamientos:} (id, titulo, tipo, direccion, barrio, lat, lon, precio\_mes, habitaciones\_totales, habitaciones\_libres, nombre\_casero, contacto\_casero, biografia\_casero, \textcolor{LoyolaBlue}{\textbf{geom: Point 4326}}) \\
+      \textbf{habitaciones\_convivencia:} (id, \underline{alojamiento\_id}, numero\_habitacion, estado, precio\_habitacion, nombre\_estudiante, grado, curso, biografia\_convivencia)
+    }%
+  }
+  \caption{Esquema lógico de las tablas del sistema geoespacial.}
+  \label{fig:esquema}
+\end{figure}
+
+Las tablas han sido diseñadas con restricciones de integridad (\texttt{CHECK}):
+\begin{itemize}[leftmargin=1.0cm]
+  \item Rango de coordenadas GPS válidas: $\text{lat} \in [-90, 90]$ y $\text{lon} \in [-180, 180]$.
+  \item Precios estrictamente positivos (\texttt{precio\_mes > 0}).
+  \item Consistencia de disponibilidad: \texttt{habitaciones\_libres <= habitaciones\_totales}.
+  \item Dominio tipológico: \texttt{tipo IN ('Piso Compartido', 'Residencia Universitaria', 'Chalet Adosado', 'Estudio / Ático')}.
+\end{itemize}
+
+\subsection{Definición de índices espaciales en DDL}
+Para asegurar que el optimizador de consultas seleccione el camino de acceso espacial más rápido, se construyen dos índices GiST especializados:
+\begin{lstlisting}[language=SQL,caption={Definición DDL de índices GiST espaciales y funcionales}]
+-- 1. Indice GiST espacial estandar para operadores 2D
+CREATE INDEX idx_alojamientos_geom_gist 
+    ON alojamientos USING GIST (geom);
+
+-- 2. Indice GiST funcional sobre tipo GEOGRAPHY (distancias en metros)
+CREATE INDEX idx_alojamientos_geog_gist 
+    ON alojamientos USING GIST ((geom::geography));
+
+-- 3. Indice GiST sobre poligonos de zonas de cobertura (ST_Contains)
+CREATE INDEX idx_zonas_geom_gist 
+    ON zonas_cobertura USING GIST (geom);
+\end{lstlisting}
+
+\subsection{Despliegue automatizado con Docker Compose}
+Siguiendo las directrices del curso, la infraestructura se encapsula en un fichero \texttt{compose.yaml} reproducible:
+\begin{lstlisting}[language=XML,caption={Fichero de orquestación compose.yaml}]
+name: alojamientos-loyola
+
+services:
+  postgis-db:
+    image: postgis/postgis:16-3.4
+    container_name: alojamientos-postgis
+    environment:
+      POSTGRES_USER: loyola_admin
+      POSTGRES_PASSWORD: loyola_password
+      POSTGRES_DB: alojamientos_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    restart: unless-stopped
+\end{lstlisting}
+
+\subsection{Conjunto de datos estructurado (Dataset de 20 ofertas y 58 habitaciones)}
+Se ha creado un dataset realista de 20 alojamientos en un radio inferior a 5 kilómetros del Campus de Loyola, estructurado en \texttt{scratch\_20\_alojamientos.json} y poblado mediante el script SQL \texttt{02\_insert\_20\_alojamientos.sql}. El conjunto cubre:
+\begin{itemize}[leftmargin=1.0cm]
+  \item \textbf{Diversidad de precios:} desde 240 \euro{}/mes (pisos compartidos económicos) hasta 680 \euro{}/mes (residencias con pensión completa).
+  \item \textbf{Distribución geográfica:} Entrenúcleos (560 m a 1.7 km), Montequinto y Olivar de Quintos (2.5 km a 4.7 km), Bellavista (3.7 km a 4.5 km) y Dos Hermanas Centro (1.5 km a 2.6 km).
+  \item \textbf{58 habitaciones modeladas:} con nombres reales de inquilinos, titulaciones de Loyola (Ingeniería del Software, ADE, Relaciones Internacionales, Criminología, etc.) y biografías detalladas de convivencia.
+\end{itemize}
+
+% ============================================================================
+% 5. RESULTADOS
+% ============================================================================
+\section{Resultados obtenidos}
+
+A continuación se presentan las consultas ejecutadas contra la base de datos PostGIS en ejecución en Docker y sus resultados tabulados.
+
+\subsection{Consulta 1: Búsqueda por radio inmediato (ST\_DWithin + ST\_Distance)}
+Un estudiante necesita conocer los alojamientos situados a menos de 2.000 metros (2 km) de la puerta del campus, ordenados de menor a mayor distancia:
+
+\begin{lstlisting}[language=SQL,caption={Consulta 1: Alojamientos en un radio de 2 km}]
+SELECT a.id, a.titulo, a.tipo, a.barrio, a.precio_mes AS "Precio",
+       a.habitaciones_libres AS "Libres",
+       ROUND(ST_Distance(a.geom::geography, c.geom::geography)::numeric, 1) AS "Distancia (m)"
+FROM alojamientos a
+CROSS JOIN campus_universitario c
+WHERE c.nombre LIKE '%Loyola%'
+  AND ST_DWithin(a.geom::geography, c.geom::geography, 2000)
+ORDER BY "Distancia (m)" ASC;
+\end{lstlisting}
+
+\begin{table}[H]
+  \centering
+  \small
+  \caption{Resultado de la Consulta 1: Alojamientos a menos de 2 km de Loyola.}
+  \begin{tabular}{clllccc}
+    \toprule
+    \textbf{ID} & \textbf{Título} & \textbf{Tipo} & \textbf{Barrio} & \textbf{Precio} & \textbf{Libres} & \textbf{Distancia} \\
+    \midrule
+    1 & Piso Moderno Entrenúcleos & Piso Comp. & Entrenúcleos & 350.00 \euro{} & 1 & 567.7 m \\
+    2 & Residencia Loyola Living & Residencia & Entrenúcleos & 680.00 \euro{} & 5 & 940.9 m \\
+    3 & Piso Jardines Universidades & Piso Comp. & Entrenúcleos & 340.00 \euro{} & 2 & 1070.7 m \\
+    17 & Chalet Piscina Arco Norte & Chalet Ad. & D.H. Norte & 480.00 \euro{} & 1 & 1315.5 m \\
+    4 & Ático Plácido Fdez Viagas & Ático & Entrenúcleos & 390.00 \euro{} & 1 & 1384.5 m \\
+    19 & Apartamento Av. España & Piso Comp. & D.H. Centro & 330.00 \euro{} & 1 & 1550.9 m \\
+    5 & Piso Torre Entrenúcleos & Piso Comp. & Entrenúcleos & 360.00 \euro{} & 1 & 1677.4 m \\
+    \bottomrule
+  \end{tabular}
+  \label{tab:consulta1}
+\end{table}
+
+\subsection{Consulta 2: Top 5 alojamientos más económicos (< 3.5 km)}
+Se busca el alojamiento más asequible a distancia razonable de la universidad:
+\begin{table}[H]
+  \centering
+  \small
+  \caption{Resultado de la Consulta 2: Top 5 opciones económicas en radio de 3.5 km.}
+  \begin{tabular}{clllcc}
+    \toprule
+    \textbf{ID} & \textbf{Título} & \textbf{Dirección} & \textbf{Precio} & \textbf{Distancia} \\
+    \midrule
+    16 & Piso Económico Plaza Arenal & Plaza del Arenal, 6 & 240.00 \euro{} & 2380.9 m \\
+    18 & Piso Céntrico Antonia Díaz & Calle Antonia Díaz, 31 & 250.00 \euro{} & 2582.3 m \\
+    7 & Piso Metro Olivar de Quintos & Av. Condes de Ibarra, 3 & 310.00 \euro{} & 3349.9 m \\
+    19 & Apartamento Av. de España & Av. de España, 78 & 330.00 \euro{} & 1550.9 m \\
+    3 & Piso Jardines Universidades & C. Manuel Clavero, 8 & 340.00 \euro{} & 1070.7 m \\
+    \bottomrule
+  \end{tabular}
+  \label{tab:consulta2}
+\end{table}
+
+\subsection{Consulta 3: Contención en polígono de transporte (ST\_Contains)}
+Consulta que identifica los pisos dentro del polígono delimitado para el barrio de \textbf{Montequinto} (conectado por Metro L1 y lanzadera):
+\begin{lstlisting}[language=SQL,caption={Consulta 3: Contención en polígono mediante ST\_Contains}]
+SELECT a.id, a.titulo, a.precio_mes, z.nombre_barrio, z.transporte_directo
+FROM alojamientos a
+JOIN zonas_cobertura z ON ST_Contains(z.geom, a.geom)
+WHERE z.nombre_barrio LIKE '%Montequinto%'
+ORDER BY a.precio_mes ASC;
+\end{lstlisting}
+
+Se recuperan exitosamente los 7 alojamientos ubicados dentro de dicho perímetro (ID 10, 8, 11, 7, 6, 9, 12), con precios que oscilan entre 260 \euro{}/mes y 590 \euro{}/mes.
+
+\subsection{Consulta 4: Convivencia y biografía de compañeros de piso}
+\begin{lstlisting}[language=SQL,caption={Consulta 4: Consulta estrella de cercanía y perfiles de convivencia}]
+SELECT a.titulo AS "Piso",
+       ROUND(ST_Distance(a.geom::geography, c.geom::geography)::numeric, 0) AS "Distancia (m)",
+       h.numero_habitacion AS "Hab", h.estado, h.precio_habitacion AS "Precio",
+       COALESCE(h.nombre_estudiante, '--- LIBRE ---') AS "Companero",
+       COALESCE(h.grado, '-') AS "Grado", h.biografia_convivencia AS "Habitos"
+FROM alojamientos a
+CROSS JOIN campus_universitario c
+JOIN habitaciones_convivencia h ON a.id = h.alojamiento_id
+WHERE c.nombre LIKE '%Loyola%'
+  AND ST_DWithin(a.geom::geography, c.geom::geography, 3000)
+  AND a.habitaciones_libres > 0
+  AND h.precio_habitacion <= 360.00
+ORDER BY "Distancia (m)" ASC, a.id, h.numero_habitacion;
+\end{lstlisting}
+
+Esta consulta permite a un estudiante saber que en el piso de Entrenúcleos (a 568 m del campus) la habitación 3 está disponible por 350 \euro{}, y que convivirá con \textbf{Álvaro Martín} (3º Ing. Software, deportista, cocina limpia y silencio nocturno) y \textbf{Lucía Ruiz} (2º ADE, tranquila, madrugadora).
+
+\subsection{Consulta 5: Plan de ejecución con EXPLAIN ANALYZE}
+Para evidenciar el impacto del índice espacial GiST, se analizó el plan de ejecución de la búsqueda por radio geodésico:
+
+\begin{lstlisting}[caption={Salida real del optimizador PostgreSQL (EXPLAIN ANALYZE)}]
+-> Nested Loop (cost=0.26..44.43 rows=1 width=348) (actual time=0.048..0.090 rows=8 loops=1)
+   -> Seq Scan on campus_universitario c (cost=0.00..11.12 rows=1)
+   -> Index Scan using idx_alojamientos_geog_gist on alojamientos a (cost=0.26..20.79 rows=1)
+      Index Cond: ((geom)::geography && _st_expand((c.geom)::geography, 2500))
+      Filter: st_dwithin((geom)::geography, (c.geom)::geography, 2500, true)
+Planning Time: 0.126 ms
+Execution Time: 0.123 ms
+\end{lstlisting}
+
+El optimizador utiliza el índice \texttt{idx\_alojamientos\_geog\_gist} mediante el operador \texttt{\&\&}, evaluando la condición espacial en apenas \textbf{0.123 milisegundos}.
+
+\subsection{Cliente web interactivo (mapa\_alojamientos.html)}
+El proyecto se completa con una aplicación web cartográfica construida con \textbf{Leaflet}:
+\begin{itemize}[leftmargin=1.0cm]
+  \item Cartografía base sin bloqueos mediante \textbf{Esri World Street Map} y capas conmutables (Callejero, Topográfico, Satélite).
+  \item Marcador fijo del Campus de Loyola (icono \textit{mortarboard} académico) en sus coordenadas exactas.
+  \item Anillo de radio dinámico (\texttt{ST\_DWithin}) regulable entre 500 m y 5.000 m mediante botones rápidos y barra de ajuste continuo.
+  \item Selector interactivo de ordenación que replica las cláusulas SQL \texttt{ORDER BY} (por distancia, precio ascendente/descendente o plazas libres).
+  \item Visualizador modal de convivencia para examinar la biografía de los compañeros de cada piso.
+\end{itemize}
+
+% ============================================================================
+% 6. ANÁLISIS E INTERPRETACIÓN
+% ============================================================================
+\section{Análisis e interpretación de los resultados}
+
+Los resultados confirman que el modelo geoespacial resuelve de manera óptima las necesidades detectadas:
+\begin{enumerate}[leftmargin=1.0cm]
+  \item \textbf{Efectividad del filtrado espacial:} El análisis de \texttt{EXPLAIN ANALYZE} demuestra que el índice GiST actúa como filtro eliminador de primer orden. El tiempo de ejecución de 0.12 ms es independiente del número total de viviendas no colindantes, ya que las cajas mínimas envolventes descartan las zonas remotas antes de cargar páginas de datos en la memoria intermedia (\textit{buffer cache}).
+  \item \textbf{Agrupamiento geográfico del mercado:} Se aprecia una correlación nítida entre distancia y precio: los pisos en Entrenúcleos promedian 360 \euro{}/mes debido a la ventaja de acudir a pie a Loyola, mientras que Montequinto ofrece una oferta más económica (260--290 \euro{}/mes) a cambio de 12 minutos de desplazamiento en metro o lanzadera.
+  \item \textbf{Interoperabilidad de la convivencia:} El acoplamiento entre tipos geoespaciales y atributos relacionales no genera penalizaciones de rendimiento. La consulta combinada (espacial + biografía de compañeros) se ejecuta en menos de 1.5 ms.
+\end{enumerate}
+
+% ============================================================================
+% 7. DECISIONES Y JUSTIFICACIÓN
+% ============================================================================
+\section{Decisiones tomadas y justificación}
+
+\begin{itemize}[leftmargin=1.0cm]
+  \item \textbf{Decisión 1: Elección de PostGIS frente a bases relacionales puras.}  
+  \textit{Justificación:} Un SGBD relacional plano carece de soporte nativo para curvatura terrestre y polígonos. PostGIS estandariza el tipo \texttt{GEOMETRY/GEOGRAPHY} y proporciona algoritmos OGC optimizados en C.
+  
+  \item \textbf{Decisión 2: Adopción del elipsoide WGS 84 (SRID 4326) con cast geodésico.}  
+  \textit{Justificación:} Garantiza compatibilidad directa con aplicaciones GPS y cartografía web (Leaflet/OpenStreetMap), permitiendo expresar las restricciones de búsqueda en metros exactos mediante \texttt{geom::geography}.
+  
+  \item \textbf{Decisión 3: Creación del índice funcional GiST geodésico.}  
+  \textit{Justificación:} Permite que consultas con \texttt{ST\_DWithin(..., radio\_metros)} utilicen directamente el índice sin necesidad de reproyectar cada punto en tiempo de ejecución.
+  
+  \item \textbf{Decisión 4: Modelo híbrido para la gestión de convivencia.}  
+  \textit{Justificación:} Se descartó almacenar los compañeros como atributos planos o texto dentro de la vivienda; se diseñó una entidad normalizada \texttt{habitaciones\_convivencia} con clave foránea para permitir futuras extensiones transaccionales de reserva concurrente (TPI 3 y TPI 4).
+  
+  \item \textbf{Decisión 5: Cartografía base con Esri World Street Map.}  
+  \textit{Justificación:} Evita los bloqueos de política de uso (HTTP 403) observados en servidores comunitarios de OpenStreetMap al ejecutarse desde ficheros locales (\texttt{file://}), ofreciendo una excelente resolución cartográfica de Dos Hermanas y Sevilla.
+\end{itemize}
+
+% ============================================================================
+% 8. CONCLUSIONES Y APRENDIZAJE
+% ============================================================================
+\section{Conclusiones y aprendizaje}
+
+El desarrollo del TPI 1 ha permitido asimilar de forma práctica el papel de las bases de datos especializadas:
+\begin{itemize}[leftmargin=1.0cm]
+  \item Se ha comprobado que no todos los problemas deben modelarse en esquemas relacionales tradicionales. Cuando la dimensión organizadora principal es el espacio, una extensión geoespacial resulta técnicamente imprescindible.
+  \item Se ha comprendido la mecánica interna de los índices GiST basados en árboles R y cómo el operador de solapamiento de cajas (\texttt{\&\&}) optimiza radicalmente la evaluación de predicados espaciales.
+  \item Se ha interiorizado la distinción entre coordenadas proyectadas (planas) y coordenadas geodésicas (esferoidales), y la importancia del parámetro SRID para evitar errores de medición en proyectos de software reales.
+  \item La solución implementada es reutilizable para futuros trabajos de la asignatura: el módulo de reservas puede servir de banco de pruebas para transacciones ACID y control de concurrencia ante reservas simultáneas de una misma habitación.
+\end{itemize}
+
+% ============================================================================
+% 9. DECLARACIÓN DE USO DE INTELIGENCIA ARTIFICIAL
+% ============================================================================
+\section{Declaración de uso de inteligencia artificial}
+
+\textbf{Marque una opción y complete la información correspondiente:}
+
+\begin{itemize}[label=$\square$,leftmargin=1.2cm]
+  \item[\color{LoyolaBlue}$\blacksquare$] \textbf{Sí he utilizado herramientas de inteligencia artificial} como apoyo en este trabajo.
+  \item[$\square$] \textbf{No he utilizado herramientas de inteligencia artificial} en la realización de este trabajo.
+\end{itemize}
+
+\textbf{Herramienta(s) utilizada(s):} \\
+Google Antigravity / Gemini 3.8 Flash.
+
+\textbf{Uso concreto realizado:} \\
+Asistencia en la formulación de la sintaxis SQL de funciones geodésicas de PostGIS (\texttt{ST\_DWithin}, \texttt{ST\_Distance}, \texttt{ST\_Contains}), estructuración del fichero de orquestación \texttt{compose.yaml}, soporte en la plantilla del visor web en Leaflet (\texttt{mapa\_alojamientos.html}) y estructuración de la memoria en formato \LaTeX{}.
+
+\textbf{Revisión y validación personal:} \\
+El estudiante ha definido de forma autónoma la idea de negocio (alojamientos y convivencia en el Campus de Loyola), ha verificado las coordenadas geográficas reales de Dos Hermanas, ha ejecutado y analizado los planes de consulta (\texttt{EXPLAIN ANALYZE}) en Docker, ha contrastado los tiempos de ejecución y domina íntegramente los conceptos teóricos para su defensa oral.
+
+% ============================================================================
+% 10. REFERENCIAS
+% ============================================================================
+\section{Referencias}
+
+\begin{thebibliography}{9}
+
+\bibitem{postgis_doc}
+PostGIS Project Steering Committee,
+\textit{PostGIS 3.4.0 Manual},
+2024.
+\url{https://postgis.net/documentation/}
+
+\bibitem{postgres_doc}
+The PostgreSQL Global Development Group,
+\textit{PostgreSQL 16 Documentation: Spatial Data and GiST Indexing},
+2024.
+\url{https://www.postgresql.org/docs/16/}
+
+\bibitem{ogc_standard}
+Open Geospatial Consortium (OGC),
+\textit{OpenGIS Implementation Standard for Geographic information - Simple feature access - Part 1: Common architecture},
+Document OGC 06-103r4.
+
+\bibitem{soria_tema3}
+Dr. Anier Soria Lorente,
+\textit{Tema 3: Bases de Datos Especializadas},
+Material docente de Ampliación de Bases de Datos, Universidad Loyola Andalucía, curso 2026/2027.
+
+\bibitem{leaflet_doc}
+Volodymyr Agafonkin,
+\textit{Leaflet: an open-source JavaScript library for mobile-friendly interactive maps},
+2024.
+\url{https://leafletjs.com/}
+
+\end{thebibliography}
+
+% ============================================================================
+% ANEXOS
+% ============================================================================
+\appendix
+\section{Anexo: Script de inicialización y consultas}
+
+El código fuente completo del proyecto, scripts DDL, datasets JSON y el visor cartográfico se encuentran estructurados en el repositorio local del proyecto:
+\begin{itemize}[leftmargin=1.0cm]
+  \item \texttt{compose.yaml}: Configuración del servicio contenedorizado PostGIS.
+  \item \texttt{01\_init\_postgis\_ddl.sql}: Sentencias DDL de creación de tablas e índices espaciales.
+  \item \texttt{02\_insert\_20\_alojamientos.sql}: Sentencias de inserción de las 20 ofertas y 58 habitaciones.
+  \item \texttt{03\_consultas\_espaciales.sql}: Batería completa de consultas analíticas.
+  \item \texttt{mapa\_alojamientos.html}: Aplicación web interactiva.
+\end{itemize}
+
+\end{document}

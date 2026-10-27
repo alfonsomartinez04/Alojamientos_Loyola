@@ -1,0 +1,6 @@
+# Volumen de datos local de PostgreSQL / PostGIS
+data/
+
+# Archivos temporales del sistema
+.DS_Store
+Thumbs.db

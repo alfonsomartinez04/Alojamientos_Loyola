@@ -1,0 +1,864 @@
+﻿[
+  {
+    "id": 1,
+    "titulo": "Piso Moderno Entrenúcleos Suites",
+    "tipo": "Piso Compartido",
+    "direccion": "Av. de las Universidades, 14, Entrenúcleos",
+    "barrio": "Entrenúcleos",
+    "lat": 37.3115,
+    "lon": -5.9390,
+    "precio_mes": 350.0,
+    "habitaciones_totales": 3,
+    "habitaciones_libres": 1,
+    "nombre_casero": "Carmen Domínguez",
+    "contacto_casero": "carmen.d@alojaloyola.es",
+    "biografia_casero": "Exalumna de Loyola. Acondiciono mis pisos para universitarios con wifi fibra 1Gb y mesas de estudio.",
+    "habitaciones": [
+      {
+        "numero": 1,
+        "estado": "Ocupada",
+        "precio": 350.0,
+        "inquilino": "Álvaro Martín",
+        "grado": "Ingeniería del Software",
+        "curso": 3,
+        "biografia": "Estudio mucho en biblioteca, juego al baloncesto y me gusta mantener la cocina siempre limpia y el silencio de noche."
+      },
+      {
+        "numero": 2,
+        "estado": "Ocupada",
+        "precio": 350.0,
+        "inquilino": "Lucía Ruiz",
+        "grado": "ADE y Relaciones Internacionales",
+        "curso": 2,
+        "biografia": "Chica tranquila, me gusta salir a correr por Entrenúcleos y repostería los fines de semana. Ambiente de estudio."
+      },
+      {
+        "numero": 3,
+        "estado": "Disponible",
+        "precio": 350.0,
+        "inquilino": null,
+        "grado": null,
+        "curso": null,
+        "biografia": "Habitación individual con luz natural, cama de 105cm, escritorio amplio, silla ergonómica y armario empotrado."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "titulo": "Residencia Loyola Campus Living",
+    "tipo": "Residencia Universitaria",
+    "direccion": "Calle José Rodríguez de la Borbolla, 5, Entrenúcleos",
+    "barrio": "Entrenúcleos",
+    "lat": 37.3140,
+    "lon": -5.9360,
+    "precio_mes": 680.0,
+    "habitaciones_totales": 45,
+    "habitaciones_libres": 5,
+    "nombre_casero": "Gerencia Campus Living",
+    "contacto_casero": "info@campusliving.es",
+    "biografia_casero": "Residencia concertada para Loyola. Pensión completa, gimnasio, salas coworking y vigilancia 24h.",
+    "habitaciones": [
+      {
+        "numero": 101,
+        "estado": "Ocupada",
+        "precio": 680.0,
+        "inquilino": "Guillermo Sanz",
+        "grado": "Derecho y ADE",
+        "curso": 1,
+        "biografia": "Deportista, sociable, de Madrid. Me gusta hacer piña en las zonas comunes de la residencia."
+      },
+      {
+        "numero": 102,
+        "estado": "Disponible",
+        "precio": 680.0,
+        "inquilino": null,
+        "grado": null,
+        "curso": null,
+        "biografia": "Habitación individual con baño privado, pensión completa incluida, climatización y limpieza semanal."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "titulo": "Piso Jardines de las Universidades",
+    "tipo": "Piso Compartido",
+    "direccion": "Calle Manuel Clavero Arévalo, 8, Entrenúcleos",
+    "barrio": "Entrenúcleos",
+    "lat": 37.3165,
+    "lon": -5.9430,
+    "precio_mes": 340.0,
+    "habitaciones_totales": 4,
+    "habitaciones_libres": 2,
+    "nombre_casero": "Javier Benítez",
+    "contacto_casero": "j.benitez@gmail.com",
+    "biografia_casero": "Piso nuevo a estrenar junto a carril bici directo a la puerta de Loyola.",
+    "habitaciones": [
+      {
+        "numero": 1,
+        "estado": "Ocupada",
+        "precio": 340.0,
+        "inquilino": "Mateo Rossi",
+        "grado": "Economía (Erasmus)",
+        "curso": 3,
+        "biografia": "Estudiante italiano de Erasmus. Respetuoso, ordenado, me gusta practicar español y conocer gente sana."
+      },
+      {
+        "numero": 2,
+        "estado": "Ocupada",
+        "precio": 340.0,
+        "inquilino": "Sofia Delgado",
+        "grado": "Psicología",
+        "curso": 2,
+        "biografia": "Suelo estudiar con música tranquila en cascos. No fumadora y muy cuidadosa con la convivencia."
+      },
+      {
+        "numero": 3,
+        "estado": "Disponible",
+        "precio": 340.0,
+        "inquilino": null,
+        "grado": null,
+        "curso": null,
+        "biografia": "Habitación con cama grande, balcón privado a jardín y toma ethernet de alta velocidad."
+      },
+      {
+        "numero": 4,
+        "estado": "Disponible",
+        "precio": 340.0,
+        "inquilino": null,
+        "grado": null,
+        "curso": null,
+        "biografia": "Habitación luminosa orientada al este con escritorio esquinero y armario doble."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "titulo": "Ático Panorámico Av. Plácido Fdez Viagas",
+    "tipo": "Piso Compartido",
+    "direccion": "Av. Plácido Fernández Viagas, 22, Entrenúcleos",
+    "barrio": "Entrenúcleos",
+    "lat": 37.3190,
+    "lon": -5.9380,
+    "precio_mes": 390.0,
+    "habitaciones_totales": 3,
+    "habitaciones_libres": 1,
+    "nombre_casero": "Elena Herrera",
+    "contacto_casero": "elena.atico@inmo.com",
+    "biografia_casero": "Ático de diseño con terraza de 25m2 para desconectar con vistas a todo Entrenúcleos.",
+    "habitaciones": [
+      {
+        "numero": 1,
+        "estado": "Ocupada",
+        "precio": 390.0,
+        "inquilino": "Nicolás Cano",
+        "grado": "Ingeniería Mecatrónica",
+        "curso": 4,
+        "biografia": "Fan de la robótica y la Fórmula 1. Ordenado, responsable y con buen sentido del humor."
+      },
+      {
+        "numero": 2,
+        "estado": "Ocupada",
+        "precio": 390.0,
+        "inquilino": "Paula Márquez",
+        "grado": "Comunicación Digital",
+        "curso": 3,
+        "biografia": "Creativa, trabajo a tiempo parcial en marketing. Busco convivencia colaborativa y buen rollo."
+      },
+      {
+        "numero": 3,
+        "estado": "Disponible",
+        "precio": 390.0,
+        "inquilino": null,
+        "grado": null,
+        "curso": null,
+        "biografia": "Habitación principal con acceso directo a terraza panorámica y aire acondicionado frío/calor."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "titulo": "Piso Estudiantil Torre Entrenúcleos",
+    "tipo": "Piso Compartido",
+    "direccion": "Calle Santiago Carrillo, 4, Entrenúcleos",
+    "barrio": "Entrenúcleos",
+    "lat": 37.3220,
+    "lon": -5.9410,
+    "precio_mes": 360.0,
+    "habitaciones_totales": 3,
+    "habitaciones_libres": 1,
+    "nombre_casero": "Andrés Macías",
+    "contacto_casero": "andres.m@yahoo.es",
+    "biografia_casero": "Trato cercano, resuelvo cualquier avería el mismo día. Busco inquilinos formales.",
+    "habitaciones": [
+      {
+        "numero": 1,
+        "estado": "Ocupada",
+        "precio": 360.0,
+        "inquilino": "David Romero",
+        "grado": "Criminología",
+        "curso": 2,
+        "biografia": "Madrugo para ir al gimnasio, limpio y enfocado en los exámenes. Cero problemas de convivencia."
+      },
+      {
+        "numero": 2,
+        "estado": "Ocupada",
+        "precio": 360.0,
+        "inquilino": "Carla Lozano",
+        "grado": "Educación Infantil",
+        "curso": 3,
+        "biografia": "Sociable, me encanta el cine y la fotografía. Me gusta compartir cenas charlando."
+      },
+      {
+        "numero": 3,
+        "estado": "Disponible",
+        "precio": 360.0,
+        "inquilino": null,
+        "grado": null,
+        "curso": null,
+        "biografia": "Habitación completamente amueblada, colchón viscoelástico nuevo y ventana insonorizada."
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "titulo": "Chalet Estudiantil Olivar de Quintos",
+    "tipo": "Chalet Adosado",
+    "direccion": "Calle Mesina, 8, Olivar de Quintos",
+    "barrio": "Olivar de Quintos",
+    "lat": 37.3320,
+    "lon": -5.9310,
+    "precio_mes": 420.0,
+    "habitaciones_totales": 4,
+    "habitaciones_libres": 2,
+    "nombre_casero": "Rafael Morales",
+    "contacto_casero": "rafa.morales@hotmail.com",
+    "biografia_casero": "Chalet adosado con patio trasero para barbacoas de fin de semana y zona de relax.",
+    "habitaciones": [
+      {
+        "numero": 1,
+        "estado": "Ocupada",
+        "precio": 420.0,
+        "inquilino": "Hugo Giménez",
+        "grado": "Biotecnología",
+        "curso": 2,
+        "biografia": "Me gusta la tranquilidad del chalet para estudiar. Salgo a correr por el parque los domingos."
+      },
+      {
+        "numero": 2,
+        "estado": "Ocupada",
+        "precio": 420.0,
+        "inquilino": "Ignacio Rivas",
+        "grado": "Ingeniería Industrial",
+        "curso": 3,
+        "biografia": "Organizado, amante de la tecnología y el deporte. Respetuoso con los horarios de descanso."
+      },
+      {
+        "numero": 3,
+        "estado": "Disponible",
+        "precio": 420.0,
+        "inquilino": null,
+        "grado": null,
+        "curso": null,
+        "biografia": "Habitación espaciosa con vistas al jardín del chalet, baño semi-privado."
+      },
+      {
+        "numero": 4,
+        "estado": "Disponible",
+        "precio": 420.0,
+        "inquilino": null,
+        "grado": null,
+        "curso": null,
+        "biografia": "Habitación individual con luz cenital, escritorio doble y estanterías para libros."
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "titulo": "Piso junto a Estación Metro Olivar de Quintos",
+    "tipo": "Piso Compartido",
+    "direccion": "Av. Condes de Ibarra, 3, Olivar de Quintos",
+    "barrio": "Olivar de Quintos",
+    "lat": 37.3350,
+    "lon": -5.9280,
+    "precio_mes": 310.0,
+    "habitaciones_totales": 3,
+    "habitaciones_libres": 1,
+    "nombre_casero": "María Ángeles Vílchez",
+    "contacto_casero": "mavilchez@gmail.com",
+    "biografia_casero": "Ubicación inmejorable: a 50 metros del metro final de línea 1 y lanzadera directa a Loyola.",
+    "habitaciones": [
+      {
+        "numero": 1,
+        "estado": "Ocupada",
+        "precio": 310.0,
+        "inquilino": "Adrián Navarro",
+        "grado": "Administración de Empresas",
+        "curso": 4,
+        "biografia": "Centrado en el TFG y prácticas en empresa. Rutinas fijas y ambiente muy tranquilo."
+      },
+      {
+        "numero": 2,
+        "estado": "Ocupada",
+        "precio": 310.0,
+        "inquilino": "Sergio Santos",
+        "grado": "Ingeniería del Software",
+        "curso": 2,
+        "biografia": "Apasionado del código y el ajedrez. Convivencia fácil, no pongo problemas por nada."
+      },
+      {
+        "numero": 3,
+        "estado": "Disponible",
+        "precio": 310.0,
+        "inquilino": null,
+        "grado": null,
+        "curso": null,
+        "biografia": "Habitación exterior con balcón a la avenida, armario empotrado y mesa de oficina."
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "titulo": "Piso Luminoso Av. de Europa",
+    "tipo": "Piso Compartido",
+    "direccion": "Av. de Europa, 24, Montequinto",
+    "barrio": "Montequinto",
+    "lat": 37.3420,
+    "lon": -5.9315,
+    "precio_mes": 280.0,
+    "habitaciones_totales": 4,
+    "habitaciones_libres": 2,
+    "nombre_casero": "Manuel Sánchez",
+    "contacto_casero": "manuel.s@gmail.com",
+    "biografia_casero": "Piso con supermercados Mercadona y Dia justo debajo y terraza comunitaria.",
+    "habitaciones": [
+      {
+        "numero": 1,
+        "estado": "Ocupada",
+        "precio": 280.0,
+        "inquilino": "Marcos Peña",
+        "grado": "Criminología y Derecho",
+        "curso": 4,
+        "biografia": "Último año. Busco buen ambiente de convivencia, compañerismo y respeto en época de exámenes."
+      },
+      {
+        "numero": 2,
+        "estado": "Ocupada",
+        "precio": 280.0,
+        "inquilino": "Daniel Herrera",
+        "grado": "Ingeniería Mecatrónica",
+        "curso": 1,
+        "biografia": "De Almería. Me gusta la tecnología, la música indie y cocinar los domingos."
+      },
+      {
+        "numero": 3,
+        "estado": "Disponible",
+        "precio": 280.0,
+        "inquilino": null,
+        "grado": null,
+        "curso": null,
+        "biografia": "Habitación exterior soleada, mesa de estudio con flexo y calefactor."
+      },
+      {
+        "numero": 4,
+        "estado": "Disponible",
+        "precio": 280.0,
+        "inquilino": null,
+        "grado": null,
+        "curso": null,
+        "biografia": "Habitación interior muy silenciosa ideal para los que necesitan máxima concentración."
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "titulo": "Estudio Individual Montequinto Centro",
+    "tipo": "Estudio / Ático",
+    "direccion": "Calle Siena, 6, Montequinto",
+    "barrio": "Montequinto",
+    "lat": 37.3450,
+    "lon": -5.9340,
+    "precio_mes": 450.0,
+    "habitaciones_totales": 1,
+    "habitaciones_libres": 1,
+    "nombre_casero": "Inmaculada León",
+    "contacto_casero": "inma.leon@gestinmo.com",
+    "biografia_casero": "Estudio independiente para quien busca privacidad absoluta sin compartir zonas comunes.",
+    "habitaciones": [
+      {
+        "numero": 1,
+        "estado": "Disponible",
+        "precio": 450.0,
+        "inquilino": null,
+        "grado": null,
+        "curso": null,
+        "biografia": "Estudio completo: cocina propia equipada, baño en suite, sofá cama de alta gama y zona de estudio."
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "titulo": "Piso Compartido junto a Metro Europa",
+    "tipo": "Piso Compartido",
+    "direccion": "Av. de San José de Calasanz, 11, Montequinto",
+    "barrio": "Montequinto",
+    "lat": 37.3480,
+    "lon": -5.9300,
+    "precio_mes": 260.0,
+    "habitaciones_totales": 4,
+    "habitaciones_libres": 1,
+    "nombre_casero": "Pablo Osorio",
+    "contacto_casero": "posorio@pisossevilla.com",
+    "biografia_casero": "Económico y práctico. Especial para estudiantes con presupuesto ajustado.",
+    "habitaciones": [
+      {
+        "numero": 1,
+        "estado": "Ocupada",
+        "precio": 260.0,
+        "inquilino": "Iván Carrasco",
+        "grado": "Educación Primaria",
+        "curso": 2,
+        "biografia": "Extrovertido, toco la guitarra acústica (a horas prudentes) y hago senderismo."
+      },
+      {
+        "numero": 2,
+        "estado": "Ocupada",
+        "precio": 260.0,
+        "inquilino": "Raúl Montero",
+        "grado": "Ingeniería del Software",
+        "curso": 3,
+        "biografia": "Horario intensivo de estudio, me gusta salir de cañas los jueves universitarios."
+      },
+      {
+        "numero": 3,
+        "estado": "Ocupada",
+        "precio": 260.0,
+        "inquilino": "Gonzalo Ortiz",
+        "grado": "Fisioterapia",
+        "curso": 1,
+        "biografia": "Muy ordenado con la limpieza semanal y responsable en casa."
+      },
+      {
+        "numero": 4,
+        "estado": "Disponible",
+        "precio": 260.0,
+        "inquilino": null,
+        "grado": null,
+        "curso": null,
+        "biografia": "Habitación económica y acogedora con armario y mesa de estudio."
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "titulo": "Piso Estudiantes Calle Bolonia",
+    "tipo": "Piso Compartido",
+    "direccion": "Calle Bolonia, 15, Montequinto",
+    "barrio": "Montequinto",
+    "lat": 37.3435,
+    "lon": -5.9270,
+    "precio_mes": 290.0,
+    "habitaciones_totales": 3,
+    "habitaciones_libres": 1,
+    "nombre_casero": "Patricia Valera",
+    "contacto_casero": "pvalera@quintoalquila.com",
+    "biografia_casero": "Piso reformado con cocina americana, electrodomésticos clase A y aire acondicionado.",
+    "habitaciones": [
+      {
+        "numero": 1,
+        "estado": "Ocupada",
+        "precio": 290.0,
+        "inquilino": "Marina Conde",
+        "grado": "Periodismo y Comunicación",
+        "curso": 2,
+        "biografia": "Lectora empedernida, organizada y alegre. Ambiente casero tranquilo y de respeto mutuo."
+      },
+      {
+        "numero": 2,
+        "estado": "Ocupada",
+        "precio": 290.0,
+        "inquilino": "Lucía Tejero",
+        "grado": "Diseño Gráfico",
+        "curso": 3,
+        "biografia": "Tranquila, trabajo en proyectos creativos. Me encanta el orden en el salón y la cocina."
+      },
+      {
+        "numero": 3,
+        "estado": "Disponible",
+        "precio": 290.0,
+        "inquilino": null,
+        "grado": null,
+        "curso": null,
+        "biografia": "Habitación amueblada con cama nido, estantería espaciosa y ventana exterior."
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "titulo": "Residencia Universitaria Montequinto Hub",
+    "tipo": "Residencia Universitaria",
+    "direccion": "Av. de los Pinos, 32, Montequinto",
+    "barrio": "Montequinto",
+    "lat": 37.3460,
+    "lon": -5.9365,
+    "precio_mes": 590.0,
+    "habitaciones_totales": 30,
+    "habitaciones_libres": 4,
+    "nombre_casero": "Comunidad ResiHub",
+    "contacto_casero": "sevilla@resihub.com",
+    "biografia_casero": "Residencia mixta con salas de estudio, actividades de integración deportiva y lavandería.",
+    "habitaciones": [
+      {
+        "numero": 204,
+        "estado": "Ocupada",
+        "precio": 590.0,
+        "inquilino": "Felipe Cobos",
+        "grado": "Relaciones Internacionales",
+        "curso": 1,
+        "biografia": "De Córdoba, apasionado de los debates y los idiomas. Muy sociable."
+      },
+      {
+        "numero": 205,
+        "estado": "Disponible",
+        "precio": 590.0,
+        "inquilino": null,
+        "grado": null,
+        "curso": null,
+        "biografia": "Habitación individual con baño privado, aire acondicionado centralizado y gastos incluidos."
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "titulo": "Piso Reformado Calle Guadalajara",
+    "tipo": "Piso Compartido",
+    "direccion": "Calle Guadalajara, 19, Bellavista",
+    "barrio": "Bellavista",
+    "lat": 37.3330,
+    "lon": -5.9720,
+    "precio_mes": 275.0,
+    "habitaciones_totales": 3,
+    "habitaciones_libres": 1,
+    "nombre_casero": "Laura Gil",
+    "contacto_casero": "laura.sevilla@gmail.com",
+    "biografia_casero": "Zona con gran ambiente de bares de tapas y estación de tren de cercanías.",
+    "habitaciones": [
+      {
+        "numero": 1,
+        "estado": "Ocupada",
+        "precio": 275.0,
+        "inquilino": "Emilio Pardo",
+        "grado": "Enfermería",
+        "curso": 3,
+        "biografia": "Hago turnos de prácticas en hospital, por lo que valoro muchísimo el silencio y la consideración de descanso."
+      },
+      {
+        "numero": 2,
+        "estado": "Ocupada",
+        "precio": 275.0,
+        "inquilino": "Celia Barroso",
+        "grado": "Farmacia",
+        "curso": 2,
+        "biografia": "Estudio constante, limpia y colaborativa. Me gusta cocinar comida saludable."
+      },
+      {
+        "numero": 3,
+        "estado": "Disponible",
+        "precio": 275.0,
+        "inquilino": null,
+        "grado": null,
+        "curso": null,
+        "biografia": "Habitación exterior con cama canapé de 105cm, mesa de escritorio y armario de 2 puertas."
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "titulo": "Ático Premium Jardines de Hércules",
+    "tipo": "Estudio / Ático",
+    "direccion": "Paseo de Europa, 45, Bellavista - Bermejales",
+    "barrio": "Bellavista",
+    "lat": 37.3370,
+    "lon": -5.9750,
+    "precio_mes": 430.0,
+    "habitaciones_totales": 2,
+    "habitaciones_libres": 1,
+    "nombre_casero": "Tomás Varo",
+    "contacto_casero": "tomasvaro@inmobellido.com",
+    "biografia_casero": "Urbanización privada con piscina comunitaria, pista de pádel y portero 24 horas.",
+    "habitaciones": [
+      {
+        "numero": 1,
+        "estado": "Ocupada",
+        "precio": 430.0,
+        "inquilino": "Clara Soler",
+        "grado": "Máster en Ciberseguridad",
+        "curso": 1,
+        "biografia": "Graduada en ingeniería, teletrabajo a media jornada. Ambiente muy profesional y tranquilo."
+      },
+      {
+        "numero": 2,
+        "estado": "Disponible",
+        "precio": 430.0,
+        "inquilino": null,
+        "grado": null,
+        "curso": null,
+        "biografia": "Habitación con acceso a terraza común del ático, baño compartido solo con Clara."
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "titulo": "Piso Cercanías Bellavista",
+    "tipo": "Piso Compartido",
+    "direccion": "Calle Asencio y Toledo, 14, Bellavista",
+    "barrio": "Bellavista",
+    "lat": 37.3290,
+    "lon": -5.9700,
+    "precio_mes": 295.0,
+    "habitaciones_totales": 3,
+    "habitaciones_libres": 1,
+    "nombre_casero": "Francisco Alarcón",
+    "contacto_casero": "alarcon_bellavista@hotmail.com",
+    "biografia_casero": "A 3 minutos andando de la estación de Cercanías Renfe y parada de autobús.",
+    "habitaciones": [
+      {
+        "numero": 1,
+        "estado": "Ocupada",
+        "precio": 295.0,
+        "inquilino": "Rodrigo Paz",
+        "grado": "Ingeniería de Telecomunicación",
+        "curso": 2,
+        "biografia": "Muy aficionado al cine clásico y a programar. Silencioso y siempre predispuesto a ayudar."
+      },
+      {
+        "numero": 2,
+        "estado": "Ocupada",
+        "precio": 295.0,
+        "inquilino": "Marta Galiano",
+        "grado": "ADE",
+        "curso": 3,
+        "biografia": "Madrugadora, alegre y muy responsable con los turnos de limpieza de la casa."
+      },
+      {
+        "numero": 3,
+        "estado": "Disponible",
+        "precio": 295.0,
+        "inquilino": null,
+        "grado": null,
+        "curso": null,
+        "biografia": "Habitación con ventana a patio interior silencioso, mesa de estudio con cajonera."
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "titulo": "Piso Económico Plaza del Arenal",
+    "tipo": "Piso Compartido",
+    "direccion": "Plaza del Arenal, 6, Dos Hermanas Centro",
+    "barrio": "Dos Hermanas Centro",
+    "lat": 37.2890,
+    "lon": -5.9270,
+    "precio_mes": 240.0,
+    "habitaciones_totales": 3,
+    "habitaciones_libres": 1,
+    "nombre_casero": "Antonia Gómez",
+    "contacto_casero": "antoniagomez@gmail.com",
+    "biografia_casero": "En pleno centro histórico de Dos Hermanas, con todo tipo de comercios y tren de cercanías.",
+    "habitaciones": [
+      {
+        "numero": 1,
+        "estado": "Ocupada",
+        "precio": 240.0,
+        "inquilino": "Lucas Marín",
+        "grado": "Derecho",
+        "curso": 3,
+        "biografia": "Estudio por las mañanas, trabajo de camarero de noche en fin de semana. Respetuoso con los compañeros."
+      },
+      {
+        "numero": 2,
+        "estado": "Ocupada",
+        "precio": 240.0,
+        "inquilino": "Pablo Reina",
+        "grado": "Ingeniería del Software",
+        "curso": 1,
+        "biografia": "Me gusta el fútbol y el gaming. Convivencia relajada y cordial."
+      },
+      {
+        "numero": 3,
+        "estado": "Disponible",
+        "precio": 240.0,
+        "inquilino": null,
+        "grado": null,
+        "curso": null,
+        "biografia": "Habitación individual con el precio más económico de la zona, cama de 90cm y mesa."
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "titulo": "Chalet con Piscina Arco Norte",
+    "tipo": "Chalet Adosado",
+    "direccion": "Av. Adolfo Suárez, 55, Dos Hermanas Norte",
+    "barrio": "Dos Hermanas Centro",
+    "lat": 37.2980,
+    "lon": -5.9320,
+    "precio_mes": 480.0,
+    "habitaciones_totales": 4,
+    "habitaciones_libres": 1,
+    "nombre_casero": "Guillermo Bécquer",
+    "contacto_casero": "gbecquer@chaletsdoshermanas.es",
+    "biografia_casero": "Chalet de lujo con piscina, porche ajardinado y aparcamiento privado.",
+    "habitaciones": [
+      {
+        "numero": 1,
+        "estado": "Ocupada",
+        "precio": 480.0,
+        "inquilino": "Jaime de la Cerda",
+        "grado": "ADE Bilingüe",
+        "curso": 4,
+        "biografia": "Preparando oposiciones internacionales. Muy serio, deportista (tenis) y amante de la lectura."
+      },
+      {
+        "numero": 2,
+        "estado": "Ocupada",
+        "precio": 480.0,
+        "inquilino": "Belén Cifuentes",
+        "grado": "Biomedicina",
+        "curso": 3,
+        "biografia": "Paso muchas horas en laboratorios. Cuando estoy en casa me gusta descansar y cocinar tranquila."
+      },
+      {
+        "numero": 3,
+        "estado": "Ocupada",
+        "precio": 480.0,
+        "inquilino": "Darío Nieto",
+        "grado": "Ingeniería de Datos",
+        "curso": 2,
+        "biografia": "Tranquilo, ordenado, suelo estudiar en el jardín cuando hace buen tiempo."
+      },
+      {
+        "numero": 4,
+        "estado": "Disponible",
+        "precio": 480.0,
+        "inquilino": null,
+        "grado": null,
+        "curso": null,
+        "biografia": "Suite amplia con armario vestidor, mesa ejecutiva de trabajo y vistas a la piscina."
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "titulo": "Piso Céntrico Calle Antonia Díaz",
+    "tipo": "Piso Compartido",
+    "direccion": "Calle Antonia Díaz, 31, Dos Hermanas Centro",
+    "barrio": "Dos Hermanas Centro",
+    "lat": 37.2860,
+    "lon": -5.9290,
+    "precio_mes": 250.0,
+    "habitaciones_totales": 3,
+    "habitaciones_libres": 1,
+    "nombre_casero": "Joaquín Valenzuela",
+    "contacto_casero": "jvalenzuela@pisosdh.com",
+    "biografia_casero": "Piso tradicional andaluz con patio de luces, muy fresco en verano y silencioso.",
+    "habitaciones": [
+      {
+        "numero": 1,
+        "estado": "Ocupada",
+        "precio": 250.0,
+        "inquilino": "Teresa Cobo",
+        "grado": "Psicología",
+        "curso": 4,
+        "biografia": "Muy sociable pero madura. Me gusta tener la casa bonita y limpia, cero malos rollos."
+      },
+      {
+        "numero": 2,
+        "estado": "Ocupada",
+        "precio": 250.0,
+        "inquilino": "Manuel Serrano",
+        "grado": "ADE",
+        "curso": 2,
+        "biografia": "Chico deportista, corro por las tardes y estudio con regularidad. No fumador."
+      },
+      {
+        "numero": 3,
+        "estado": "Disponible",
+        "precio": 250.0,
+        "inquilino": null,
+        "grado": null,
+        "curso": null,
+        "biografia": "Habitación individual con ventana al patio, cama de 90cm, escritorio y armario."
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "titulo": "Apartamento Moderno Av. de España",
+    "tipo": "Piso Compartido",
+    "direccion": "Av. de España, 78, Dos Hermanas",
+    "barrio": "Dos Hermanas Centro",
+    "lat": 37.2930,
+    "lon": -5.9400,
+    "precio_mes": 330.0,
+    "habitaciones_totales": 2,
+    "habitaciones_libres": 1,
+    "nombre_casero": "Susana Porras",
+    "contacto_casero": "susana.porras@alquileres.com",
+    "biografia_casero": "Piso moderno de 2 habitaciones, ideal para convivencia íntima y de confianza.",
+    "habitaciones": [
+      {
+        "numero": 1,
+        "estado": "Ocupada",
+        "precio": 330.0,
+        "inquilino": "Enrique Saldaña",
+        "grado": "Ingeniería del Software",
+        "curso": 3,
+        "biografia": "Programador, me gusta el gym y la cocina japonesa. Limpio, organizado y cordial."
+      },
+      {
+        "numero": 2,
+        "estado": "Disponible",
+        "precio": 330.0,
+        "inquilino": null,
+        "grado": null,
+        "curso": null,
+        "biografia": "Habitación exterior con cama de 135cm, mesa grande de trabajo y aire acondicionado inverter."
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "titulo": "Residencia Universitaria El Arenal",
+    "tipo": "Residencia Universitaria",
+    "direccion": "Calle Real Utrera, 20, Dos Hermanas Centro",
+    "barrio": "Dos Hermanas Centro",
+    "lat": 37.2885,
+    "lon": -5.9250,
+    "precio_mes": 520.0,
+    "habitaciones_totales": 20,
+    "habitaciones_libres": 3,
+    "nombre_casero": "Residencia El Arenal S.L.",
+    "contacto_casero": "reservas@resielarenal.es",
+    "biografia_casero": "Residencia con régimen de media pensión o pensión completa opcional y salas comunes de estudio.",
+    "habitaciones": [
+      {
+        "numero": 12,
+        "estado": "Ocupada",
+        "precio": 520.0,
+        "inquilino": "Ignacio Baena",
+        "grado": "Derecho",
+        "curso": 1,
+        "biografia": "De Huelva, me encanta la vida universitaria, salir de tapas y el ambiente de la residencia."
+      },
+      {
+        "numero": 14,
+        "estado": "Disponible",
+        "precio": 520.0,
+        "inquilino": null,
+        "grado": null,
+        "curso": null,
+        "biografia": "Habitación individual con baño, limpieza semanal y media pensión incluida."
+      }
+    ]
+  }
+]
